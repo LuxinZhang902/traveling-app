@@ -9,18 +9,25 @@ const ItemContainer = ({imageSrc, title, location}) => {
             source={{uri : imageSrc}} //Currently using url, instead of the object as before
             className="w-full h-40 rounded-md object-cover"
         />
+        {title ? (
+            <>
+                <Text className="text-[#2C7379] text-[18px] font-bold">
+                    {title?.length > 14 ? `${title.slice(0, 14)}..` : title}
+                </Text>
 
-        <Text className="text-[#2C7379] text-[18px] font-bold">
-            {title?.length > 14 ? `${title.slice(0, 14)}..` : title}
-        </Text>
+                <View className="flex-row items-center space-x-1">
+                    {/* Location */}
+                    <FontAwesome5 name="map-marker-alt" size={12} color="#8597A2" />
+                    <Text className="text-[#3b7d83] text-[14px] font-bold">
+                        {title?.length > 18 ? `${title.slice(0, 18)}..` : location}
+                    </Text>
+                </View>
+            </>
+        ) : (
+        <></>
+        )}
 
-        <View className="flex-row items-center space-x-1">
-            {/* Location */}
-            <FontAwesome5 name="map-marker-alt" size={12} color="#8597A2" />
-            <Text className="text-[#3b7d83] text-[14px] font-bold">
-                {title?.length > 18 ? `${title.slice(0, 18)}..` : location}
-            </Text>
-        </View>
+        
     </TouchableOpacity>
   )
 }

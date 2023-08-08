@@ -112,18 +112,20 @@ const Discover = () => {
            </View>
  
            <View className="px-4 mt-8 flex-row items-center justify-center flex-wrap">
-              {mainData?.length > 0 ? (<>
-                <ItemContainer 
-               key={"101"} 
-               imageSrc={"https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_1280.jpg"} 
-               title="Boat-testthisplacewithlong words" 
-               location="FL" />
-             <ItemContainer 
-               key={"102"} 
-               imageSrc={"https://cdn.pixabay.com/photo/2016/11/30/15/00/lighthouse-1872998_1280.jpg"} 
-               title="LightHouse" 
-               location="FL"/>
- 
+              {mainData?.length > 0 ? (
+              <>
+                {mainData?.map((data, i) => (
+                  <ItemContainer 
+                  key={i} 
+                  imageSrc={
+                    data?.photo?.images?.medium?.url ? 
+                    data?.photo?.images?.medium?.url : 
+                    "https://cdn.pixabay.com/photo/2017/06/21/09/19/spoon-2426623_1280.jpg"
+                  }
+                  title={data?.name} 
+                  location={data?.location_string} />
+                  
+                ))} 
               </>
               ) : (
               <>
@@ -135,7 +137,7 @@ const Discover = () => {
                 </View>
 
               </>
-              )}
+            )}
             
            </View>
          </View>
