@@ -59,7 +59,7 @@ yarn add react-native-animatable
 
 # Bug Record
 1. import { View, Text, SafeAreaView , Image, TouchableOpacity} from 'react-native'
-TouchableOpacity shoule in react-native instead of react-native-web
+TouchableOpacity shoule in react-native instead of react-native-web (Don't let it import the package automatically, check)
 ```javascript
 <TouchableOpacity>
     <View className="w-20 h-20 items-center justify-center rounded-full bg-[#D7B16D]">
@@ -79,7 +79,12 @@ TouchableOpacity shoule in react-native instead of react-native-web
 2. react native animination: https://www.npmjs.com/package/react-native-animatable 
 3. color picker: https://imagecolorpicker.com/
 4. React native google places autocomplete: https://www.npmjs.com/package/react-native-google-places-autocomplete 
+5. Rapid API: https://rapidapi.com/hub 
 
 
 # credentials
 AIzaSyDfrXTzXHq1Y8Ny2OoQ3vLLTcEw0rharn0
+
+## Record lat, lng
+{"northeast": {"lat": 36.13692893995489, "lng": -78.76217196923287}, 
+"southwest": {"lat": 35.86672489145732, "lng": -79.00764996066233}}
