@@ -85,6 +85,7 @@ TouchableOpacity shoule in react-native instead of react-native-web (Don't let i
 5. Rapid API: https://rapidapi.com/hub 
 6. icons: https://icons.expo.fyi/Index 
 7. Doumentation for icons: https://docs.expo.dev/guides/icons/
+8. Activities indicator: https://reactnative.dev/docs/activityindicator?redirected 
 
 
 # credentials
