@@ -2,7 +2,7 @@ import { View, Text, SafeAreaView, Image, ScrollView, TouchableOpacity, Activity
 import React, {useLayoutEffect, useState} from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {useNavigation} from '@react-navigation/native';
-import { Avatar, Hotels, Restaurants, Attractions } from '../assets';
+import { Avatar, Hotels, Restaurants, Attractions,NotFound } from '../assets';
 import MenuContainer from '../components/MenuContainer';
 import ItemContainer from '../components/ItemContainer';
 
@@ -14,6 +14,7 @@ const Discover = () => {
   const navigation = useNavigation();
   const [type, setType] = useState("restaurants"); //By default, it chose the restaurant only
   const [isLoading, setIsLoading] = useState(false);
+  const [mainData, setmainData] = useState([])
 
     useLayoutEffect(() =>{
         navigation.setOptions({
@@ -100,7 +101,8 @@ const Discover = () => {
            </View>
  
            <View className="px-4 mt-8 flex-row items-center justify-center flex-wrap">
-             <ItemContainer 
+              {mainData?.length > 0 ? (<>
+                <ItemContainer 
                key={"101"} 
                imageSrc={"https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_1280.jpg"} 
                title="Boat-testthisplacewithlong words" 
@@ -111,6 +113,19 @@ const Discover = () => {
                title="LightHouse" 
                location="FL"/>
  
+              </>
+              ) : (
+              <>
+                <View className="w-full h-[300px] items-center space-y-8 justify-center">
+                  <Image source={NotFound} className="w-32 h-32 object-cover"/>
+                  <Text className="text-2xl text-[#428288] font-semibold">
+                    Opps...No Data Found
+                  </Text>
+                </View>
+
+              </>
+              )}
+            
            </View>
          </View>
  
