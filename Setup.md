@@ -72,8 +72,14 @@ TouchableOpacity shoule in react-native instead of react-native-web
 ```javascript
 <View className="flex-1 relative items-center justify-center">
 ```
+3. className instead of classname
 
 # Useful Links
 1. free online pictures: https://pixabay.com/
 2. react native animination: https://www.npmjs.com/package/react-native-animatable 
 3. color picker: https://imagecolorpicker.com/
+4. React native google places autocomplete: https://www.npmjs.com/package/react-native-google-places-autocomplete 
+
+
+# credentials
+AIzaSyDfrXTzXHq1Y8Ny2OoQ3vLLTcEw0rharn0
