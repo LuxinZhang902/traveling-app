@@ -123,7 +123,9 @@ const Discover = () => {
                     "https://cdn.pixabay.com/photo/2017/06/21/09/19/spoon-2426623_1280.jpg"
                   }
                   title={data?.name} 
-                  location={data?.location_string} />
+                  location={data?.location_string}
+                  data={data}
+                   />
                   
                 ))} 
               </>
