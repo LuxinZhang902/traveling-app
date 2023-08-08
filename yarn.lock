@@ -1497,6 +1497,10 @@
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-13.0.0.tgz#e2989b85e95a82bce216f88cf8fb583ab050ec95"
   integrity sha512-TI+l71+5aSKnShYclFa14Kum+hQMZ86b95SH6tQUG3qZEmLTarvWpKwqtTwQKqvlJSJrpFiSFu3eCuZokY6zWA==
 
+"@expo/vector-icons@expo/vector-icons":
+  version "13.0.0"
+  resolved "https://codeload.github.com/expo/vector-icons/tar.gz/9848cf9d6979c446f17e26314b6ba86c088ec1a4"
+
 "@expo/webpack-config@^18.0.1":
   version "18.1.1"
   resolved "https://registry.yarnpkg.com/@expo/webpack-config/-/webpack-config-18.1.1.tgz#8f55442e44e8e906c7516973c12f143aa7db25ad"

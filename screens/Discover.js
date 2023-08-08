@@ -1,9 +1,13 @@
-import { View, Text, SafeAreaView, Image, ScrollView} from 'react-native'
+import { View, Text, SafeAreaView, Image, ScrollView, TouchableOpacity} from 'react-native'
 import React, {useLayoutEffect, useState} from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {useNavigation} from '@react-navigation/native';
 import { Avatar, Hotels, Restaurants, Attractions } from '../assets';
 import MenuContainer from '../components/MenuContainer';
+import ItemContainer from '../components/ItemContainer';
+
+import { FontAwesome } from '@expo/vector-icons'; 
+
 
 
 const Discover = () => {
@@ -78,6 +82,33 @@ const Discover = () => {
             type={type}
             setType={setType}
           />
+        </View>
+
+
+        <View>
+          <View className="flex-row items-center justify-between px-4 mt-8">
+            <Text className="text-[#2C7379] text-[22px] font-bold">Top Tips</Text>
+            <TouchableOpacity className="flex-row items-center justify-center space-x-2">
+              <Text className="text-[#A0C4C7] text-[22px] font-bold">
+                Explore
+              </Text>
+              <FontAwesome name="long-arrow-right" size={24} color="#A0C4C7" />
+            </TouchableOpacity>
+          </View>
+
+          <View className="px-4 mt-8 flex-row items-center justify-center flex-wrap">
+            <ItemContainer 
+              key={"101"} 
+              imageSrc={"https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_1280.jpg"} 
+              title="Boat-testthisplacewithlong words" 
+              location="FL" />
+            <ItemContainer 
+              key={"102"} 
+              imageSrc={"https://cdn.pixabay.com/photo/2016/11/30/15/00/lighthouse-1872998_1280.jpg"} 
+              title="LightHouse" 
+              location="FL"/>
+
+          </View>
         </View>
 
       </ScrollView>

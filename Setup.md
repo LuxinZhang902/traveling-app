@@ -54,6 +54,9 @@ yarn add @react-navigation/native-stack
 
 # animination 
 yarn add react-native-animatable
+
+# icons
+yarn add expo/vector-icons
 ```
 
 
@@ -80,6 +83,8 @@ TouchableOpacity shoule in react-native instead of react-native-web (Don't let i
 3. color picker: https://imagecolorpicker.com/
 4. React native google places autocomplete: https://www.npmjs.com/package/react-native-google-places-autocomplete 
 5. Rapid API: https://rapidapi.com/hub 
+6. icons: https://icons.expo.fyi/Index 
+7. Doumentation for icons: https://docs.expo.dev/guides/icons/
 
 
 # credentials
