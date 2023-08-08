@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, Image, ScrollView, TouchableOpacity, ActivityIndicator} from 'react-native'
-import React, {useLayoutEffect, useState} from 'react'
+import React, {useEffect, useLayoutEffect, useState} from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {useNavigation} from '@react-navigation/native';
 import { Avatar, Hotels, Restaurants, Attractions,NotFound } from '../assets';
@@ -7,6 +7,7 @@ import MenuContainer from '../components/MenuContainer';
 import ItemContainer from '../components/ItemContainer';
 
 import { FontAwesome } from '@expo/vector-icons'; 
+import { getPlacesData } from '../api';
 
 
 
@@ -14,13 +15,23 @@ const Discover = () => {
   const navigation = useNavigation();
   const [type, setType] = useState("restaurants"); //By default, it chose the restaurant only
   const [isLoading, setIsLoading] = useState(false);
-  const [mainData, setmainData] = useState([])
+  const [mainData, setMainData] = useState([])
 
     useLayoutEffect(() =>{
         navigation.setOptions({
             headerShown: false,
         })
-    }, [])
+    }, []);
+
+    useEffect(() => {
+      setIsLoading(true);
+      getPlacesData().then((data) => {
+        setMainData(data);
+        setInterval(() => {
+          setIsLoading(false);
+        }, 2000); //2s
+      });
+    }, []);
 
   return (
     <SafeAreaView classname="flex-1 bg-white relative">

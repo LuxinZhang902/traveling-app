@@ -57,7 +57,12 @@ yarn add react-native-animatable
 
 # icons
 yarn add expo/vector-icons
+
+# axios
+yarn add axios
 ```
+
+useEffect v.s. useLayoutEffect: 1. render compent 2. render ui
 
 
 # Bug Record
