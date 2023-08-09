@@ -15,7 +15,12 @@ const Discover = () => {
   const navigation = useNavigation();
   const [type, setType] = useState("restaurants"); //By default, it chose the restaurant only
   const [isLoading, setIsLoading] = useState(false);
-  const [mainData, setMainData] = useState([])
+  const [mainData, setMainData] = useState([]);
+  const [bl_lat, setBl_lat] = useState(null); //bottom left latitude - southwest latitude
+  const [bl_lng, setBl_lng] = useState(null); //bottom left longitude - southwest longitude
+  const [tr_lat, setTr_lat] = useState(null); //top right latitude - northeast latitude
+  const [tr_lng, setTr_lng] = useState(null); //top right longitude - southwest longitude
+
 
     useLayoutEffect(() =>{
         navigation.setOptions({
@@ -25,13 +30,13 @@ const Discover = () => {
 
     useEffect(() => {
       setIsLoading(true);
-      getPlacesData().then((data) => {
+      getPlacesData(bl_lat, bl_lng, tr_lat, tr_lng).then((data) => {
         setMainData(data);
         setInterval(() => {
           setIsLoading(false);
         }, 2000); //2s
       });
-    }, []);
+    }, [bl_lat, bl_lng, tr_lat, tr_lng]);
 
   return (
     <SafeAreaView classname="flex-1 bg-white relative">
@@ -60,6 +65,10 @@ const Discover = () => {
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
           console.log(details?.geometry?.viewport);
+          setBl_lat(details?.geometry?.viewport?.southwest?.lat)
+          setBl_lng(details?.geometry?.viewport?.southwest?.lng)
+          setTr_lat(details?.geometry?.viewport?.northeast?.lat)
+          setTr_lng(details?.geometry?.viewport?.northeast?.lng)
         }}
         query={{
           key: 'AIzaSyDfrXTzXHq1Y8Ny2OoQ3vLLTcEw0rharn0',
