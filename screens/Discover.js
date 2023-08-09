@@ -30,13 +30,13 @@ const Discover = () => {
 
     useEffect(() => {
       setIsLoading(true);
-      getPlacesData(bl_lat, bl_lng, tr_lat, tr_lng).then((data) => {
+      getPlacesData(bl_lat, bl_lng, tr_lat, tr_lng, type).then((data) => {
         setMainData(data);
         setInterval(() => {
           setIsLoading(false);
         }, 2000); //2s
       });
-    }, [bl_lat, bl_lng, tr_lat, tr_lng]);
+    }, [bl_lat, bl_lng, tr_lat, tr_lng, type]);
 
   return (
     <SafeAreaView classname="flex-1 bg-white relative">
@@ -84,10 +84,10 @@ const Discover = () => {
        <ScrollView>
          <View className="flex-row items-center justify-between px-8 mt-8">
            <MenuContainer
-             key={"hotel"}
+             key={"hotels"}
              title="Hotels"
              imageSrc={Hotels}
-             type={type}
+             type={"hotels"}
              setType={setType}
            />
  
@@ -95,7 +95,7 @@ const Discover = () => {
              key={"attractions"}
              title="Attractions"
              imageSrc={Attractions}
-             type={type}
+             type={"attractions"}
              setType={setType}
            />
  
@@ -103,7 +103,7 @@ const Discover = () => {
              key={"restaurants"}
              title="Restaurants"
              imageSrc={Restaurants}
-             type={type}
+             type={"restaurants"}
              setType={setType}
            />
          </View>
